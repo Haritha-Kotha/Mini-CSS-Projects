@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Toggle Button</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: violet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh;
+        }
+        .container{
+            height: 150px;
+            width: 300px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+        .toggle
+        {
+            height: 50px;
+            width: 100px;
+            background-color:gray;
+            border-radius: 30px;
+            position: relative;
+            padding: 0 6px;
+            box-shadow: 0 0 5px rgba(0, 0,0 ,0.9);
+
+        }
+        .lock{
+
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            height: 38px;
+            width: 38px;
+            text-align: center;
+            left:6px;
+            top:50%;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: all .9s ease;
+            box-shadow: 0 0 5px rgba(0, 0,0 ,0.9);
+            cursor: pointer;
+
+
+
+        }
+        .lock-open{
+                background-color: rgb(255, 255, 255);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                height: 38px;
+                width: 38px;
+                text-align: center;
+                left:calc(100% - 38px - 6px);
+                top:50%;
+                border-radius: 50%;
+                transform: translateY(-50%);
+                transition: all 0.9s ease;
+                box-shadow: 0 0 5px rgba(0, 0,0 ,0.9);
+                cursor: pointer;
+
+                
+        }
+        .toggle:has(.lock-open)
+        {
+            background-color:violet;
+            box-shadow: 0 0 5px rgba(219, 5, 155, 0.9);
+
+        }
+        .toggle:has(.lock-open) i{
+            color:black;
+        }
+        i{
+            font-size: 20px;
+            color: gray;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="toggle">
+            <div class="lock">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script defer>
+    const lock=document.querySelector(".lock")
+    const icon=document.querySelector("i")
+
+    function toggleBtn()
+    {
+        if(lock.className==="lock")
+        {
+            lock.className="lock-open"
+            icon.className="fa-solid fa-lock-open"
+
+        }
+        else
+        {
+            lock.className="lock"
+            icon.className="fa-solid fa-lock"
+        }
+       
+
+
+    }
+    lock.addEventListener("click",toggleBtn)
+</script>
+</html>

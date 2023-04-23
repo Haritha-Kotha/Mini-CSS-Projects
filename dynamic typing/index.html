@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Typing Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(10, 84, 107);
+            min-height: 100vh;
+            user-select: none;
+        }
+        .content{
+            display: inline-flex;
+
+        }
+        li{
+            list-style: none;
+            /* position: relative; */
+        }
+        span{
+            position: relative;
+        }
+        .dynamic-texts{
+            margin-left: 15px;
+            font-size: 38px;
+            font-weight: 550;
+            color:rgb(252, 82, 4);
+            height: 45px;
+            line-height: 45px;
+            border-color: red;
+            overflow: hidden;
+            
+        }
+        .dynamic-texts li{
+            animation: slide 10s steps(4) infinite;
+            position: relative;
+            top:0
+
+        }
+        @keyframes slide{
+            100%{
+               top:-180px;
+            }
+        }
+        .static-text{
+            font-size: 38px;
+            color: white;
+            font-weight: 550;
+
+        }
+        li span::after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-left: 2px solid rgb(252, 82, 4);
+            left: 0;
+            background-color: rgb(10, 84, 107);
+            animation: typing 2.5s steps(20) infinite;
+        }
+        @keyframes typing{
+            100%{
+                left: 100%;
+                margin: 0 -20px 0 20px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="static-text">I'm a</div>
+        <ul class="dynamic-texts">
+            <li><span>Full Stack Developer</span></li>
+            <li><span>AI Engineer</span></li>
+            <li><span>Programmer</span></li>
+            <li><span>Multi Billionaire</span></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
